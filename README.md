@@ -1,5 +1,5 @@
 
-# nodejs-koa2-mysql-sequelize-jwt
+# oa
 
 - 技术栈：nodejs, koa2, mysql, sequelize, jwt
 - 项目数据层和操作层分明
@@ -7,10 +7,7 @@
 - jwt做权限接口验证
 - sequelize管理mysql数据库
 - 异步处理async/await
-- 已实现用户登录注册接口，文章增删改查接口
-- 喜欢或对你有帮助的话请点star✨✨，或有您有更好的建议和意见，请提出来告知我，可以留言issues，可以加我QQ: 841053515, Thanks.
 
-### 注：学习详细教程：[Koa2从0搭建到实现文章API接口 https://www.imooc.com/article/80671](https://www.imooc.com/article/80671)
 
 ### 一、学习使用
 
@@ -18,7 +15,7 @@
 git clone
 
 ```
-git clone https://github.com/liangfengbo/nodejs-koa2-mysql-sequelize-jwt.git
+git clone https://github.com/suchcl/oa.git
 ```
 
 1.1.安装
@@ -53,30 +50,33 @@ const router = new Router({
 /**
  * 用户接口
  */
-// 用户注册
-router.post('/user/register', UserController.create);
-// 用户登录
-router.post('/user/login', UserController.login);
-// 删除用户
-router.delete('/user/delete/:id', UserController.delete);
-// 获取用户信息
-router.get('/user/info', UserController.getUserInfo);
-// 获取用户列表
-router.get('/user/list', UserController.getUserList);
+//用户注册
+router.post('/user/register',UserContoller.create);
+//用户登录
+router.post('/user/login',UserContoller.login);
+
+//删除用户
+router.delete('/user/delete/:id',UserContoller.delete);
+
+//获取用户信息
+router.get('/user/info',UserContoller.getUserInfo);
+
+//获取用户列表
+router.get('/user/list',UserContoller.getUserList);
 
 /**
  * 文章接口
  */
-// 创建文章
-router.post('/article/create', ArticleController.create);
-// 获取文章详情
-router.get('/article/detail/:id', ArticleController.detail);
-// 删除文章
-router.delete('/article/delete/:id', ArticleController.delete);
-// 更改文章
-router.put('/article/update/:id', ArticleController.update);
-// 获取文章列表
-router.get('/article/list', ArticleController.getArticleList);
+//创建文章
+router.post('/article/create',ArtileController.create);
+//获取文章详情
+router.get('/article/:id',ArtileController.detail)
+//删除文章
+router.delete('/article/delete/:id',ArtileController.delete);
+//更改文章
+router.put('/article/update/:id',ArtileController.update);
+//获取文章列表
+router.get('/article/list',ArtileController.getArticleList);
 ```
 
 
@@ -88,7 +88,7 @@ http://localhost:3000/api/v1
 
 ## 一、注册接口
 
-```
+```javascript
 /user/register
 ```
 
@@ -118,8 +118,8 @@ http://localhost:3000/api/v1/user/register
 ```
 {
     "code": 200,
-    "msg": "创建用户成功",
-    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJvYiIsImlkIjo0LCJpYXQiOjE1MzUzNzcyMTcsImV4cCI6MTUzNTM4MDgxN30.AqlVBYV_AGpuzvUo6KjHAXlKkYbsuja10EH-eU_u88Q"
+    "msg": "用户注册成功",
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IuadvuaxnyIsImlkIjo4LCJpYXQiOjE1NDIzMzU2MzcsImV4cCI6MTU0MjMzOTIzN30.HHprJRm1JblxMOyTDesFNh0biqO6aVvOaCx1S0qWZJg"
 }
 ```
 
@@ -150,13 +150,12 @@ password | 密码 | 是 | String
     "code": 200,
     "msg": "登录成功",
     "data": {
-        "id": 4,
-        "username": "Bob",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJvYiIsImlkIjo0LCJpYXQiOjE1MzUzNzczODksImV4cCI6MTUzNTM4MDk4OX0.1wM7Y7wDC-Ly9V5Vm-el_CW85IfcN41JrmcPPvipLEA"
+        "id": 8,
+        "username": "松江",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IuadvuaxnyIsImlkIjo4LCJpYXQiOjE1NDIzMzU2NzcsImV4cCI6MTU0MjMzOTI3N30.bvzzMHqon6Wg8RprHzzevCemGoCbG76DHZo52lz4OSc"
     }
 }
 ```
-
 
 
 
