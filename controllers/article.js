@@ -50,7 +50,6 @@ class articleController {
             ctx.response.status = 200;
             ctx.body = statusCode.SUCCESS_200('查询文章列表成功！', data)
         } catch (e) {
-
             ctx.response.status = 412;
             ctx.body = statusCode.ERROR_412(e);
         }
